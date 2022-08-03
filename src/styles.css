@@ -1,0 +1,114 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.container {
+  width: 600px;
+  border-radius: 20px;
+  border: thin solid #eaecf0;
+  box-shadow: 0px 2px 4px -2px #1018280f;
+  box-shadow: 0px 4px 8px -2px #1018281a;
+  padding: 36px;
+  margin-top: 36px;
+}
+.city-input {
+  border-radius: 10px;
+  border: thin solid #eaecf0;
+  width: 65%;
+  height: 48px;
+  padding-left: 8px;
+}
+.search-city {
+  border-radius: 10px;
+  border: none;
+  height: 48px;
+  width: 15%;
+  margin-left: 12px;
+  background-color: #e59500;
+  color: #ffff;
+  cursor: pointer;
+}
+button {
+  border-radius: 10px;
+  border: none;
+  height: 48px;
+  width: 15%;
+  margin-left: 12px;
+  background-color: #e59500;
+  color: #ffff;
+  cursor: pointer;
+}
+.col-4 {
+  padding: 0;
+}
+.current {
+  margin-top: 12px;
+}
+.date {
+  color: rgb(103, 103, 103);
+  font-size: 14px;
+}
+.icon-current {
+  margin: 0;
+}
+.icon {
+  height: 48px;
+  width: 48px;
+  display: inline;
+}
+.temp {
+  font-size: 32px;
+  margin-left: 12px;
+}
+.description {
+  color: rgb(103, 103, 103, 0.9);
+  font-size: 14px;
+}
+.characterictics {
+  margin-top: 54px;
+  text-align: center;
+}
+.card {
+  border-radius: 25px;
+  box-shadow: 0px 2px 4px -2px #1018280f;
+  box-shadow: 0px 4px 8px -2px #1018281a;
+  text-align: center;
+  margin: 8px;
+  padding: 6px;
+  height: auto;
+  width: 92px;
+}
+.add {
+  color: rgb(103, 103, 103, 0.9);
+  font-size: 14px;
+}
+.next-days {
+  margin-left: -15px;
+  color: rgb(103, 103, 103, 0.9);
+  font-size: 14px;
+}
+.card-text {
+  color: rgb(103, 103, 103, 0.9);
+  font-size: 14px;
+}
+.card-title {
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  margin-top: 16px;
+}
+.card-body {
+  padding: 0;
+}
+.icons {
+  height: 32px;
+  width: 32px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.footer {
+  text-align: center;
+  font-size: 14px;
+}
+a {
+  color: #e59500;
+}
