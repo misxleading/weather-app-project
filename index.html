@@ -21,67 +21,76 @@
           <div class="row" id="search-form">
             <input
               type="text"
-              class="cityInput"
+              class="city-input"
               id="city-input"
               placeholder="Enter a city"
             />
-            <input type="submit" value="Search" class="searchCity" />
+            <input type="submit" value="Search" class="search-city" />
             <button>Current</button>
           </div>
         </form>
-        <div class="row">
-          <div class="col-3">
-            <div class="selected city">
-              <h1>City</h1>
-              <p>Updated: <span>Day, 00, Month, 00:00</span></p>
-              <img
-                src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/325/cloud-with-lightning-and-rain_26c8-fe0f.png"
-                alt=""
-              />
-              <p>
-                <span id="selected-city-temp">00</span><span>°</span>
-                <a id="celsius" href="">C</a>/<a id="farenheit" href="">F</a>
-              </p>
-              <p>Description</p>
-            </div>
-          </div>
-          <div class="col-8">
-            <div class="current">
-              <div class="row">
-                <div class="col-4">
-                  <h5>33°C</h5>
-                  <p class="add">High</p>
+        <div class="current">
+          <div class="row">
+            <div class="col-4">
+              <div class="selected-city">
+                <h1>City</h1>
+                <p class="date">Updated: <span>Day, 00, Month, 00:00</span></p>
+                <div class="row icon-current">
+                  <img
+                    class="icon"
+                    src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/325/cloud-with-lightning-and-rain_26c8-fe0f.png"
+                    alt=""
+                  />
+                  <p class="temp">
+                    <span id="temp">00</span><span>°</span>
+                    <a id="celsius" href="">C</a>/<a id="farenheit" href=""
+                      >F</a
+                    >
+                  </p>
                 </div>
-                <div class="col-4">
-                  <h5>16kmph</h5>
-                  <p class="add">Wind</p>
-                </div>
-                <div class="col-4">
-                  <h5>04:49</h5>
-                  <p class="add">Sunrise</p>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-4">
-                  <h5>19°C</h5>
-                  <p class="add">Low</p>
-                </div>
-                <div class="col-4">
-                  <h5>33%</h5>
-                  <p class="add">Rain</p>
-                </div>
-                <div class="col-4">
-                  <h5>21:13</h5>
-                  <p class="add">Sunset</p>
-                </div>
+
+                <p class="description">Description</p>
               </div>
             </div>
+            <div class="col-8">
+              <div class="characterictics">
+                <div class="row">
+                  <div class="col-4">
+                    <h5>33°C</h5>
+                    <p class="add">High</p>
+                  </div>
+                  <div class="col-4">
+                    <h5>16kmph</h5>
+                    <p class="add">Wind</p>
+                  </div>
+                  <div class="col-4">
+                    <h5>04:49</h5>
+                    <p class="add">Sunrise</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-4">
+                    <h5>19°C</h5>
+                    <p class="add">Low</p>
+                  </div>
+                  <div class="col-4">
+                    <h5>33%</h5>
+                    <p class="add">Rain</p>
+                  </div>
+                  <div class="col-4">
+                    <h5>21:13</h5>
+                    <p class="add">Sunset</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+          <p class="next-days">Next 5 days</p>
         </div>
-        <p class="next-days">Next 5 days</p>
+
         <div class="next-weather">
           <div class="row">
-            <div class="card" style="width: 18rem">
+            <div class="card">
               <p class="card-text">Day 00</p>
               <img
                 class="card-img-top icons"
@@ -92,7 +101,7 @@
                 <h5 class="card-title">00°C</h5>
               </div>
             </div>
-            <div class="card" style="width: 18rem">
+            <div class="card">
               <p class="card-text">Day 00</p>
               <img
                 class="card-img-top icons"
@@ -103,7 +112,7 @@
                 <h5 class="card-title">00°C</h5>
               </div>
             </div>
-            <div class="card" style="width: 18rem">
+            <div class="card">
               <p class="card-text">Day 00</p>
               <img
                 class="card-img-top icons"
@@ -114,7 +123,7 @@
                 <h5 class="card-title">00°C</h5>
               </div>
             </div>
-            <div class="card" style="width: 18rem">
+            <div class="card">
               <p class="card-text">Day 00</p>
               <img
                 class="card-img-top icons"
@@ -125,7 +134,7 @@
                 <h5 class="card-title">00°C</h5>
               </div>
             </div>
-            <div class="card" style="width: 18rem">
+            <div class="card">
               <p class="card-text">Day 00</p>
               <img
                 class="card-img-top icons"
@@ -138,14 +147,14 @@
             </div>
           </div>
         </div>
-        <small>
-          <a href="https://github.com/misxleading/weather-app-project"
-            >Open-source code</a
-          >
-          by Myroslava Antoniva
-        </small>
       </div>
     </div>
+    <p class="footer">
+      <a href="https://github.com/misxleading/weather-app-project"
+        >Open-source code</a
+      >
+      by Myroslava Antoniva
+    </p>
     <script src="src/index.js"></script>
   </body>
 </html>
