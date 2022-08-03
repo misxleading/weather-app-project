@@ -1,11 +1,3 @@
-//Celsius or Farenheit
-function celsiusTemp(event) {
-  event.preventDefault();
-  let newFarenheit = document.querySelector("#temp");
-  newFarenheit.innerHTML = `91`;
-}
-let newFarenheit = document.querySelector("#farenheit");
-newFarenheit.addEventListener("click", celsiusTemp);
 // current position weather( heading - temp - description)
 function showPosition(position) {
   let latitude = position.coords.latitude;
@@ -133,11 +125,14 @@ function formatDate(timestamp) {
 }
 // typed city weather( heading - temp - description)
 function showWeatherForTypedCity(response) {
+  console.log(response);
   console.log(response.data.name);
   let city = document.querySelector("h1");
   city.innerHTML = response.data.name;
 
-  let temp = Math.round(response.data.main.temp);
+  celsiusTemperature = response.data.main.temp;
+  let temp = Math.round(celsiusTemperature);
+
   let selectedCityTemp = document.querySelector("#temp");
   selectedCityTemp.innerHTML = `${temp}`;
 
@@ -204,6 +199,9 @@ function showWeatherForTypedCity(response) {
       "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/325/fog_1f32b-fe0f.png"
     );
   }
+
+  let highElement = document.querySelector("#high");
+  highElement.innerHTML = `${response.data.weather[0].main}`;
 }
 
 function submitSearching(event) {
