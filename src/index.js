@@ -31,6 +31,63 @@ function showCurrentTemperature(response) {
   currentPositionDescription.innerHTML = `${response.data.weather[0].main}`;
   let currentDate = document.querySelector(".date");
   currentDate.innerHTML = formatDate(response.data.dt * 1000);
+  let iconElement = document.querySelector(".icon");
+  let iconText = response.data.weather[0].icon;
+
+  if (iconText === "01d" || iconText === "01n") {
+    return iconElement.setAttribute(
+      "src",
+      "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/325/sun_2600-fe0f.png"
+    );
+  }
+  if (iconText === "02d" || iconText === "02n") {
+    return iconElement.setAttribute(
+      "src",
+      "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/325/sun-behind-cloud_26c5.png"
+    );
+  }
+  if (iconText === "03d" || iconText === "03n") {
+    return iconElement.setAttribute(
+      "src",
+      "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/325/sun-behind-large-cloud_1f325-fe0f.png"
+    );
+  }
+  if (iconText === "04d" || iconText === "04n") {
+    return iconElement.setAttribute(
+      "src",
+      "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/325/cloud_2601-fe0f.png"
+    );
+  }
+  if (iconText === "09d" || iconText === "09n") {
+    return iconElement.setAttribute(
+      "src",
+      "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/325/sun-behind-rain-cloud_1f326-fe0f.png"
+    );
+  }
+  if (iconText === "10d" || iconText === "10n") {
+    return iconElement.setAttribute(
+      "src",
+      "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/325/cloud-with-rain_1f327-fe0f.png"
+    );
+  }
+  if (iconText === "11d" || iconText === "11n") {
+    return iconElement.setAttribute(
+      "src",
+      "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/325/cloud-with-lightning-and-rain_26c8-fe0f.png"
+    );
+  }
+  if (iconText === "13d" || iconText === "13n") {
+    return iconElement.setAttribute(
+      "src",
+      "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/325/cloud-with-snow_1f328-fe0f.png"
+    );
+  }
+  if (iconText === "50d" || iconText === "50n") {
+    return iconElement.setAttribute(
+      "src",
+      "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/325/fog_1f32b-fe0f.png"
+    );
+  }
 }
 //new date fuction
 function formatDate(timestamp) {
@@ -72,7 +129,7 @@ function formatDate(timestamp) {
   if (minute < 10) {
     minute = `0${minute}`;
   }
-  return `${currentDay} ${date}, ${currentMonth}, ${hour}:${minute}`;
+  return `Updated: ${currentDay} ${date}, ${currentMonth}, ${hour}:${minute}`;
 }
 // typed city weather( heading - temp - description)
 function showWeatherForTypedCity(response) {
@@ -89,6 +146,64 @@ function showWeatherForTypedCity(response) {
 
   let dateElement = document.querySelector(".date");
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
+
+  let iconElement = document.querySelector(".icon");
+  let iconText = response.data.weather[0].icon;
+
+  if (iconText === "01d" || iconText === "01n") {
+    return iconElement.setAttribute(
+      "src",
+      "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/325/sun_2600-fe0f.png"
+    );
+  }
+  if (iconText === "02d" || iconText === "02n") {
+    return iconElement.setAttribute(
+      "src",
+      "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/325/sun-behind-cloud_26c5.png"
+    );
+  }
+  if (iconText === "03d" || iconText === "03n") {
+    return iconElement.setAttribute(
+      "src",
+      "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/325/sun-behind-large-cloud_1f325-fe0f.png"
+    );
+  }
+  if (iconText === "04d" || iconText === "04n") {
+    return iconElement.setAttribute(
+      "src",
+      "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/325/cloud_2601-fe0f.png"
+    );
+  }
+  if (iconText === "09d" || iconText === "09n") {
+    return iconElement.setAttribute(
+      "src",
+      "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/325/sun-behind-rain-cloud_1f326-fe0f.png"
+    );
+  }
+  if (iconText === "10d" || iconText === "10n") {
+    return iconElement.setAttribute(
+      "src",
+      "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/325/cloud-with-rain_1f327-fe0f.png"
+    );
+  }
+  if (iconText === "11d" || iconText === "11n") {
+    return iconElement.setAttribute(
+      "src",
+      "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/325/cloud-with-lightning-and-rain_26c8-fe0f.png"
+    );
+  }
+  if (iconText === "13d" || iconText === "13n") {
+    return iconElement.setAttribute(
+      "src",
+      "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/325/cloud-with-snow_1f328-fe0f.png"
+    );
+  }
+  if (iconText === "50d" || iconText === "50n") {
+    return iconElement.setAttribute(
+      "src",
+      "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/325/fog_1f32b-fe0f.png"
+    );
+  }
 }
 
 function submitSearching(event) {
