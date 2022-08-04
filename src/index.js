@@ -153,7 +153,35 @@ function formatDate(timestamp) {
   return `Updated: ${currentDay} ${date}, ${currentMonth}, ${hour}:${minute}`;
 }
 
-//formated time function
+// function for forecast
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+
+  <div class="card">
+    <p class="card-date">${day} 00</p>
+    <img
+      class="card-img-top icons"
+      src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/325/cloud-with-lightning-and-rain_26c8-fe0f.png"
+      alt="Card image cap"
+    />
+    <div class="card-body">
+      <h5 class="card-temp">00°C</h5>
+    </div>
+  </div>
+
+`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 
 // typed city weather( heading - temp - description)
 function showWeatherForTypedCity(response) {
@@ -297,3 +325,5 @@ celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 let currentButton = document.querySelector("button");
 currentButton.addEventListener("click", getPosition);
+
+displayForecast();

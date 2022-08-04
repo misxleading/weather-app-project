@@ -63,7 +63,7 @@ button {
   cursor: default;
 }
 .active:hover {
-  text-align: none;
+  text-decoration: none;
 }
 .temp {
   font-size: 32px;
@@ -96,11 +96,11 @@ button {
   color: rgb(103, 103, 103, 0.9);
   font-size: 14px;
 }
-.card-text {
+.card-date {
   color: rgb(103, 103, 103, 0.9);
   font-size: 14px;
 }
-.card-title {
+.card-temp {
   color: rgb(0, 0, 0);
   font-size: 20px;
   margin-top: 16px;
