@@ -17,12 +17,32 @@ function showCurrentTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
   let locationCityTemp = document.querySelector("#temp");
   locationCityTemp.innerHTML = `${temperature}`;
+
   let city = document.querySelector("h1");
   city.innerHTML = response.data.name;
+
   let currentPositionDescription = document.querySelector(".description");
   currentPositionDescription.innerHTML = `${response.data.weather[0].main}`;
+
   let currentDate = document.querySelector(".date");
   currentDate.innerHTML = formatDate(response.data.dt * 1000);
+
+  let highestTemp = Math.round(response.data.main.temp_max);
+  let highElement = document.querySelector("#high");
+  highElement.innerHTML = `${highestTemp}°C`;
+
+  let lowestTemp = Math.round(response.data.main.temp_min);
+  let lowElement = document.querySelector("#low");
+  lowElement.innerHTML = `${lowestTemp}°C`;
+
+  let wind = Math.round(response.data.wind.speed);
+  let windElement = document.querySelector("#wind");
+  windElement.innerHTML = `${wind}km/h`;
+
+  let rain = Math.round(response.data.main.humidity);
+  let rainElement = document.querySelector("#rain");
+  rainElement.innerHTML = `${rain}%`;
+
   let iconElement = document.querySelector(".icon");
   let iconText = response.data.weather[0].icon;
 
@@ -123,6 +143,9 @@ function formatDate(timestamp) {
   }
   return `Updated: ${currentDay} ${date}, ${currentMonth}, ${hour}:${minute}`;
 }
+
+//formated time function
+
 // typed city weather( heading - temp - description)
 function showWeatherForTypedCity(response) {
   console.log(response);
@@ -141,6 +164,28 @@ function showWeatherForTypedCity(response) {
 
   let dateElement = document.querySelector(".date");
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
+
+  let highestTemp = Math.round(response.data.main.temp_max);
+  let highElement = document.querySelector("#high");
+  highElement.innerHTML = `${highestTemp}°C`;
+
+  let lowestTemp = Math.round(response.data.main.temp_min);
+  let lowElement = document.querySelector("#low");
+  lowElement.innerHTML = `${lowestTemp}°C`;
+
+  let wind = Math.round(response.data.wind.speed);
+  let windElement = document.querySelector("#wind");
+  windElement.innerHTML = `${wind}km/h`;
+
+  let rain = Math.round(response.data.main.humidity);
+  let rainElement = document.querySelector("#rain");
+  rainElement.innerHTML = `${rain}%`;
+
+  let sunriseElement = document.querySelector("#sunrise");
+  sunriseElement.innerHTML = new Date(response.data.sys.sunrise * 1000);
+
+  let sunsetElement = document.querySelector("#sunset");
+  sunsetElement.innerHTML = new Date(response.data.sys.sunset * 1000);
 
   let iconElement = document.querySelector(".icon");
   let iconText = response.data.weather[0].icon;
@@ -199,9 +244,6 @@ function showWeatherForTypedCity(response) {
       "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/325/fog_1f32b-fe0f.png"
     );
   }
-
-  let highElement = document.querySelector("#high");
-  highElement.innerHTML = `${response.data.weather[0].main}`;
 }
 
 function submitSearching(event) {
