@@ -12,9 +12,10 @@ function getPosition(event) {
 }
 
 function showCurrentTemperature(response) {
-  let temperature = Math.round(response.data.main.temp);
-  let locationCityTemp = document.querySelector("#temp");
-  locationCityTemp.innerHTML = `${temperature}`;
+  celsiusTemperature = response.data.main.temp;
+  let temp = Math.round(celsiusTemperature);
+  let selectedCityTemp = document.querySelector("#temp");
+  selectedCityTemp.innerHTML = `${temp}`;
 
   let city = document.querySelector("h1");
   city.innerHTML = response.data.name;
@@ -163,7 +164,6 @@ function showWeatherForTypedCity(response) {
 
   celsiusTemperature = response.data.main.temp;
   let temp = Math.round(celsiusTemperature);
-
   let selectedCityTemp = document.querySelector("#temp");
   selectedCityTemp.innerHTML = `${temp}`;
 
@@ -289,11 +289,11 @@ let celsiusTemperature = null;
 let form = document.querySelector("form");
 form.addEventListener("submit", submitSearching);
 
-let currentButton = document.querySelector("button");
-currentButton.addEventListener("click", getPosition);
-
 let fahrenheitLink = document.querySelector("#fahrenheit");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 let celsiusLink = document.querySelector("#celsius");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+let currentButton = document.querySelector("button");
+currentButton.addEventListener("click", getPosition);
