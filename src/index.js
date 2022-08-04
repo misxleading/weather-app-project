@@ -10,8 +10,6 @@ function getPosition(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(showPosition);
 }
-let currentButton = document.querySelector("button");
-currentButton.addEventListener("click", getPosition);
 
 function showCurrentTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
@@ -42,6 +40,16 @@ function showCurrentTemperature(response) {
   let rain = Math.round(response.data.main.humidity);
   let rainElement = document.querySelector("#rain");
   rainElement.innerHTML = `${rain}%`;
+
+  let sunriseElement = document.querySelector("#sunrise");
+  sunriseElement.innerHTML = new Date(
+    response.data.sys.sunrise * 1000
+  ).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+
+  let sunsetElement = document.querySelector("#sunset");
+  sunsetElement.innerHTML = new Date(
+    response.data.sys.sunset * 1000
+  ).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
 
   let iconElement = document.querySelector(".icon");
   let iconText = response.data.weather[0].icon;
@@ -182,10 +190,14 @@ function showWeatherForTypedCity(response) {
   rainElement.innerHTML = `${rain}%`;
 
   let sunriseElement = document.querySelector("#sunrise");
-  sunriseElement.innerHTML = new Date(response.data.sys.sunrise * 1000);
+  sunriseElement.innerHTML = new Date(
+    response.data.sys.sunrise * 1000
+  ).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
 
   let sunsetElement = document.querySelector("#sunset");
-  sunsetElement.innerHTML = new Date(response.data.sys.sunset * 1000);
+  sunsetElement.innerHTML = new Date(
+    response.data.sys.sunset * 1000
+  ).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
 
   let iconElement = document.querySelector(".icon");
   let iconText = response.data.weather[0].icon;
@@ -254,5 +266,34 @@ function submitSearching(event) {
   axios.get(`${urlTyped}`).then(showWeatherForTypedCity);
 }
 
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temp");
+
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#temp");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+
 let form = document.querySelector("form");
 form.addEventListener("submit", submitSearching);
+
+let currentButton = document.querySelector("button");
+currentButton.addEventListener("click", getPosition);
+
+let fahrenheitLink = document.querySelector("#fahrenheit");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);

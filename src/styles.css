@@ -10,10 +10,13 @@ body {
   padding: 36px;
   margin-top: 36px;
 }
+.all-app {
+  margin-left: 12px;
+}
 .city-input {
   border-radius: 10px;
   border: thin solid #eaecf0;
-  width: 65%;
+  width: 63%;
   height: 48px;
   padding-left: 8px;
 }
@@ -55,7 +58,13 @@ button {
   width: 48px;
   display: inline;
 }
-
+.active {
+  color: black;
+  cursor: default;
+}
+.active:hover {
+  text-align: none;
+}
 .temp {
   font-size: 32px;
   margin-left: 12px;
