@@ -1,16 +1,3 @@
-// current position weather( heading - temp - description)
-function showPosition(position) {
-  let latitude = position.coords.latitude;
-  let longitude = position.coords.longitude;
-  let apiKey = "019d56ca36b2672fd8b69d369f52f303";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showWeather);
-}
-function getPosition(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(showPosition);
-}
-
 //new date fuction
 function formatDate(timestamp) {
   let now = new Date();
@@ -52,30 +39,17 @@ function formatDate(timestamp) {
     minute = `0${minute}`;
   }
   return `Updated: ${currentDay} ${date}, ${currentMonth}, ${hour}:${minute}`;
-}
-
-// function for getting api forecast
-function getForecastApi(coordinates) {
-  console.log(coordinates);
-  let apiKey = "26b44c1b74cfa0b6ee2a57177c15f70e";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(displayForecast);
-}
-
-// function for forecast
+} // function for forecast
 function displayForecast(response) {
-  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
-
   let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
-
   let forecastHTML = `<div class="row">`;
   days.forEach(function (day) {
     forecastHTML =
       forecastHTML +
       `
       <div class="card">
-    <p class="card-date">${day} 00</p>
+    <p class="card-date">Thu 00</p>
     <img
       class="card-img-top icons"
       src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/325/cloud-with-lightning-and-rain_26c8-fe0f.png"
@@ -90,6 +64,26 @@ function displayForecast(response) {
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+}
+// current position weather( heading - temp - description)
+function showPosition(position) {
+  let latitude = position.coords.latitude;
+  let longitude = position.coords.longitude;
+  let apiKey = "019d56ca36b2672fd8b69d369f52f303";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showWeather);
+}
+// function for getting api forecast
+function getForecastApi(coordinates) {
+  console.log(coordinates);
+  let apiKey = "26b44c1b74cfa0b6ee2a57177c15f70e";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function getPosition(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(showPosition);
 }
 
 // typed city weather( heading - temp - description)
