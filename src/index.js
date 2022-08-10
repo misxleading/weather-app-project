@@ -65,6 +65,12 @@ function displayForecast(response) {
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
+// function for getting api forecast
+function getForecastApi(coordinates) {
+  let apiKey = "019d56ca36b2672fd8b69d369f52f303";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
 // current position weather( heading - temp - description)
 function showPosition(position) {
   let latitude = position.coords.latitude;
@@ -72,13 +78,6 @@ function showPosition(position) {
   let apiKey = "019d56ca36b2672fd8b69d369f52f303";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showWeather);
-}
-// function for getting api forecast
-function getForecastApi(coordinates) {
-  console.log(coordinates);
-  let apiKey = "26b44c1b74cfa0b6ee2a57177c15f70e";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(displayForecast);
 }
 
 function getPosition(event) {
@@ -133,55 +132,55 @@ function showWeather(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
   if (iconText === "01d" || iconText === "01n") {
-    return iconElement.setAttribute(
+    iconElement.setAttribute(
       "src",
       "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/325/sun_2600-fe0f.png"
     );
   }
   if (iconText === "02d" || iconText === "02n") {
-    return iconElement.setAttribute(
+    iconElement.setAttribute(
       "src",
       "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/325/sun-behind-cloud_26c5.png"
     );
   }
   if (iconText === "03d" || iconText === "03n") {
-    return iconElement.setAttribute(
+    iconElement.setAttribute(
       "src",
       "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/325/sun-behind-large-cloud_1f325-fe0f.png"
     );
   }
   if (iconText === "04d" || iconText === "04n") {
-    return iconElement.setAttribute(
+    iconElement.setAttribute(
       "src",
       "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/325/cloud_2601-fe0f.png"
     );
   }
   if (iconText === "09d" || iconText === "09n") {
-    return iconElement.setAttribute(
+    iconElement.setAttribute(
       "src",
       "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/325/sun-behind-rain-cloud_1f326-fe0f.png"
     );
   }
   if (iconText === "10d" || iconText === "10n") {
-    return iconElement.setAttribute(
+    iconElement.setAttribute(
       "src",
       "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/325/cloud-with-rain_1f327-fe0f.png"
     );
   }
   if (iconText === "11d" || iconText === "11n") {
-    return iconElement.setAttribute(
+    iconElement.setAttribute(
       "src",
       "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/325/cloud-with-lightning-and-rain_26c8-fe0f.png"
     );
   }
   if (iconText === "13d" || iconText === "13n") {
-    return iconElement.setAttribute(
+    iconElement.setAttribute(
       "src",
       "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/325/cloud-with-snow_1f328-fe0f.png"
     );
   }
   if (iconText === "50d" || iconText === "50n") {
-    return iconElement.setAttribute(
+    iconElement.setAttribute(
       "src",
       "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/325/fog_1f32b-fe0f.png"
     );
