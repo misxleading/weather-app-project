@@ -1,112 +1,177 @@
+:root {
+  --primary-color: #e59500;
+  --main-font: inherit;
+  --secondary-font-color: rgb(103, 103, 103, 0.9);
+  --secondary-font-size: 14px;
+}
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
-.container {
-  width: 600px;
+
+.all-app {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 526px;
   border-radius: 20px;
   border: thin solid #eaecf0;
   box-shadow: 0px 2px 4px -2px #1018280f;
   box-shadow: 0px 4px 8px -2px #1018281a;
-  padding: 36px;
-  margin-top: 36px;
+  padding: 32px;
+  margin: 36px auto 0;
 }
-.all-app {
-  margin-left: 12px;
+.search {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
+
 .city-input {
   border-radius: 10px;
   border: thin solid #eaecf0;
   width: 63%;
   height: 48px;
   padding-left: 8px;
+  font-size: inherit;
+  line-height: inherit;
 }
-.search-city {
-  border-radius: 10px;
-  border: none;
-  height: 48px;
-  width: 15%;
-  margin-left: 12px;
-  background-color: #e59500;
-  color: #ffff;
-  cursor: pointer;
-}
+
+.search-city,
 button {
   border-radius: 10px;
   border: none;
   height: 48px;
   width: 15%;
-  margin-left: 12px;
-  background-color: #e59500;
+  background-color: var(--primary-color);
   color: #ffff;
   cursor: pointer;
+  font-size: inherit;
+  line-height: inherit;
 }
-.col-4 {
-  padding: 0;
-}
+
 .current {
-  margin-top: 12px;
+  display: flex;
+  flex-direction: row;
 }
+.selected-city {
+  display: flex;
+  flex-direction: column;
+  flex: 4;
+}
+.selected-city h1 {
+  margin: 8px 0;
+  font-size: 40px;
+  font-family: var(--main-font);
+  font-weight: 500;
+}
+
 .date {
   color: rgb(103, 103, 103);
-  font-size: 14px;
+  font-size: var(--secondary-font-size);
+  line-height: 1.5;
+  margin: 0 0 8px;
 }
-.icon-current {
-  margin: 0;
-}
+
 .icon {
   height: 48px;
   width: 48px;
-  display: inline;
+}
+.icon-current {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
 }
 .active {
   color: black;
   cursor: default;
+  text-decoration: none;
 }
 .active:hover {
   text-decoration: none;
 }
+.icon-current a {
+  text-decoration: none;
+}
 .temp {
   font-size: 32px;
-  margin-left: 12px;
+  line-height: 48px;
+  margin: 0;
 }
 .description {
-  color: rgb(103, 103, 103, 0.9);
-  font-size: 14px;
+  color: var(--secondary-font-color);
+  font-size: var(--secondary-font-size);
+  font-weight: 400;
+  line-height: 1.5;
 }
 .characterictics {
-  margin-top: 54px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex: 8;
+  flex-wrap: wrap;
+  margin-top: 46px;
+}
+.item {
+  display: flex;
+  flex-direction: column;
+  flex: 33%;
+  align-items: center;
   text-align: center;
+}
+
+.item h5 {
+  margin: 0 0 8px;
+  font-family: var(--main-font);
+  font-weight: 500;
+  font-size: 20px;
+  text-align: center;
+}
+.item p {
+  margin: 0 16px;
+}
+
+.add {
+  color: var(--secondary-font-color);
+  font-size: var(--secondary-font-size);
+  font-weight: 400;
+  line-height: 1.5;
+}
+.next-days {
+  color: var(--secondary-font-color);
+  font-size: var(--secondary-font-size);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.cards {
+  display: flex;
+  align-items: space-between;
+  flex-wrap: wrap;
 }
 .card {
   border-radius: 25px;
+  border: thin solid #eaecf0;
   box-shadow: 0px 2px 4px -2px #1018280f;
   box-shadow: 0px 4px 8px -2px #1018281a;
   text-align: center;
   margin: 8px;
   padding: 6px;
   height: auto;
-  width: 92px;
-}
-.add {
-  color: rgb(103, 103, 103, 0.9);
-  font-size: 14px;
-}
-.next-days {
-  margin-left: -15px;
-  color: rgb(103, 103, 103, 0.9);
-  font-size: 14px;
+  width: 74px;
 }
 .card-date {
-  color: rgb(103, 103, 103, 0.9);
-  font-size: 14px;
+  color: var(--secondary-font-color);
+  font-size: var(--secondary-font-size);
+  margin: 0 0 16px;
 }
 .card-temp {
+  font-family: var(--main-font);
+  font-weight: 500;
   color: rgb(0, 0, 0);
   font-size: 20px;
-  margin-top: 16px;
-}
-.card-body {
-  padding: 0;
+  margin: 12px;
 }
 .icons {
   height: 32px;
@@ -117,8 +182,46 @@ button {
 }
 .footer {
   text-align: center;
-  font-size: 14px;
+  font-size: var(--secondary-font-size);
+  margin-top: 0;
 }
 a {
-  color: #e59500;
+  color: var(--primary-color);
+}
+@media (max-width: 660px) {
+  .all-app {
+    width: 80%;
+    padding: 24px;
+  }
+  .city-input,
+  .search-city,
+  button,
+  .date,
+  .add,
+  .description,
+  .next-days,
+  .card-date,
+  .footer {
+    font-size: 12px;
+  }
+  .selected-city h1 {
+    font-size: 32px;
+  }
+  .current h5,
+  .card-temp {
+    font-size: 16px;
+  }
+  .icon,
+  .icons {
+    width: 24px;
+    height: 24px;
+  }
+  .cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .temp {
+    font-size: 22px;
+  }
 }
